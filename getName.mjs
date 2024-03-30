@@ -1,5 +1,5 @@
 export function getPokemonName(input) {
-    const pokemon = input.match(new RegExp(/[0-9]{4} ([A-Za-zá-ú- 0-9]{1,})(_[A|G|H|P])?(_F)?(__[A-Za-z_ñ-]{1,})?/)) // Name of Pokemon + Regional Variation + Female Variation
+    const pokemon = input.match(new RegExp(/[0-9]{4} ([A-Za-záéíóú0-9-\s]{1,})(_[A|G|H|P])?(_F)?(__[A-Za-z_ñáéíóú-]{1,})?/)) // Name of Pokemon + Regional Variation + Female Variation
     if(pokemon[2]!=undefined){
         let region;
         if(pokemon[2]=="_A"){region="Alola"}

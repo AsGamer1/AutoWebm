@@ -31,7 +31,7 @@ async function automated() {
       let pathOut = `${outFold}/${('0000' + (parseInt(image) + parseInt(1)).toString()).slice(-4)}.png`
       let im = new Magick.Image(path.resolve(pathImg))
       if (`${im.size()}` != "4100x3000") { im.crop("4100x3000+850+1200"); im.repage() }
-      if (!im.alpha()) { im.colorFuzz(400); im.transparent("rgb(0,152,51)"); im.colorFuzz(0) }
+      if (!im.alpha()) { im.colorFuzz(1000); im.transparent("#cebee0"); im.colorFuzz(2000); im.transparent("#c2b4d5"); im.transparent("#b2a6c4"); im.colorFuzz(0) }
       im.backgroundColor("White")
       const blob = new Magick.Blob;
       await im.writeAsync(blob);
