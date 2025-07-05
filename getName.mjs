@@ -15,5 +15,5 @@ export function getPokemonName(input) {
     if(pokemon[3]!=undefined){
         pokemon[1]=`${pokemon[1]}_hembra`
     }
-    return pokemon[1]
+    return pokemon[1].replace(" ", "_")
 }

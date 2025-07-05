@@ -1,4 +1,4 @@
-import { Magick, MagickCore } from 'node-magickwand';
+import { Magick, MagickCore } from 'magickwand.js';
 import * as path from 'path';
 import * as fs from 'fs';
 
@@ -22,5 +22,5 @@ export async function compose(inputDir,name,outputDir) {
     const b64 = await blob.base64Async();
 
     // Save the exported file
-    fs.writeFile(`${outputDir}/${name}-compose.png`, Buffer.from(b64, 'base64'), function (err) { });
+    fs.writeFileSync(`${outputDir}/${name}-compose.png`, Buffer.from(b64, 'base64'));
 }
