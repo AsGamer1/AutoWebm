@@ -69,7 +69,7 @@ async function automated() {
     fs.unlinkSync(`${outFold}\\${index}-alpha.png`)
 
     // Set alpha to Background
-    spawnSync(`for /f %f in ('dir /b "${outFold}"') do ${basePath}\\utils\\imagemagick\\magick.exe "${outFold}\\%f" -alpha Background "${outFold}\\%f"`, { shell: true, encoding: "utf-8" })
+    spawnSync(`for /f %f in ('dir /b "${outFold}"') do "${basePath}\\utils\\imagemagick\\magick.exe" "${outFold}\\%f" -alpha Background "${outFold}\\%f"`, { shell: true, encoding: "utf-8" })
 
     // Create output folder for webm if not exists
     const webmOutput = `${basePath}\\output\\videos`
@@ -78,7 +78,7 @@ async function automated() {
     }
 
     // Create the Webm
-    spawnSync(`${basePath}\\utils\\ffmpeg.exe -framerate 30 -f image2 -i "${outFold}\\%04d.png" -c:v libvpx-vp9 -crf 31 -b:v 0 -pix_fmt yuva420p "${webmOutput}\\${pokemon}.webm"`, { shell: true })
+    spawnSync(`"${basePath}\\utils\\ffmpeg.exe" -framerate 30 -f image2 -i "${outFold}\\%04d.png" -c:v libvpx-vp9 -crf 31 -b:v 0 -pix_fmt yuva420p "${webmOutput}\\${pokemon}.webm"`, { shell: true, encoding: "utf-8" })
   }
 }
 
